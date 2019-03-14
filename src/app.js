@@ -60,7 +60,7 @@ app.get('/weather', (req, res) => {
             return res.send({ error })
         }
 
-        forecast(lat, long, (error, forecastData) => {
+        forecast(lat, long, (error, { forecastData, temperatureMin, temperatureMax } = {}) => {
             if (error) {
                 return res.send({ error })
             }
@@ -68,7 +68,9 @@ app.get('/weather', (req, res) => {
             res.send({
                 forecastData,
                 location: placeName,
-                address
+                address,
+                temperatureMin,
+                temperatureMax
             })
         })
     })
