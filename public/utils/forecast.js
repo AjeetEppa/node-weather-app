@@ -15,8 +15,8 @@ const forecast = (lat, long, callback) => {
             const { temperatureHigh, temperatureLow } = body.daily.data[0]
             callback(undefined, {
                 forecastData: `${summary}. Temperature: ${temperature} degrees with ${precipProbability}% chances of rain.`,
-                temperatureMin: temperatureHigh,
-                temperatureMax: temperatureLow
+                temperatureMin: temperatureLow,
+                temperatureMax: temperatureHigh
             })
         } else {
             callback('Plz, check the link')
